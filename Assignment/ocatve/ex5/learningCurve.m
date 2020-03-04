@@ -52,15 +52,23 @@ error_val   = zeros(m, 1);
 %
 
 % ---------------------- Sample Solution ----------------------
-
-
-
-
-
-
-
+for i = 1:m
+  %% I. subset ...
+  Xtrain = X(1:i, :);
+  ytrain = y(1:i);
+  
+  %% II. train ...
+  theta = trainLinearReg(Xtrain, ytrain, lambda);
+  
+  %% III. error...
+  [error_train_tmp, grad] = linearRegCostFunction(Xtrain, ytrain, theta, 0);
+  [error_val_tmp, grad] = linearRegCostFunction(Xval, yval, theta, 0);
+  
+  %% IV. save ...
+  error_train(i) = error_train_tmp;
+  error_val(i) = error_val_tmp;
+endfor
 % -------------------------------------------------------------
-
 % =========================================================================
 
 end
