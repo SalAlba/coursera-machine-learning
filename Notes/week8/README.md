@@ -89,7 +89,7 @@ At the end pick the best  KNN wich give you the lowest value of cost function J(
 
 ### Advantage / Disadvantage
 
-1. TODO ...
+1. plus it's easy
 2. TODO ...
 
 ### NOTES ...
@@ -99,7 +99,9 @@ At the end pick the best  KNN wich give you the lowest value of cost function J(
 3. Once the KKN algo. find the best psotion for cluster centroids, so it will stop and will not make any change further for the postions [[2.1.]](#2.video-coursera), keep in mind sometimes it could be the best solution because could the KNN stuck in some  local minimum, or the task is complex etc.
 4. Sometimes one cluster centroid could end up with no sample (no points assigned to him) so we remove this cluster and we get K - 1 cluster, in case you really want K clusters just randomly initilize the cluster centroid.
 5. In Fig. [[Fig.2]](#Fig.2) it is not possible for the cost function of KNN to sometimes increase. There must be a bug in the code [[2.2.]](#2.video-coursera).
+6. A good way to initialize K-means is to select K (distinct) examples from the training set and set the cluster centroids equal to these selected examples. This is the recommended method of initialization.
 
+7. On every iteration of K-means, the cost function J(c^{(1)}, ..., c^{(m)},  μ_1, ..., μ_k)J(c_(1), ..., c_(m) ,μ_1, ..., μ_k) (the distortion function) should either stay the same or decrease; in particular, it should not increase. Both the cluster assignment and cluster update steps decrese the cost / distortion function, so it should never increase after an iteration of K-means
 
 
 #### Fig.2
