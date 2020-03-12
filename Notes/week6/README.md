@@ -86,7 +86,7 @@ If you run the learning algorithm and it doesn't work as you expect, so probably
 
 ## Diagnosing Bias vs. Variance
 
-Understanding and figur bias, varians problem or both in another word underfitting or overfitting. figure this problems help us to choce the good ways to improve the ML Algo. in Fig. 3. we see three different plots the first one from the left we see a high bias problem (underfitting) where the hypothesis didn't fit the training data very well, the next plot in the middle  the prefect case for the hypothesis just we want that, ths last plot we see the hypothesis has a high variance (overfitting) we see the hypothesis fit super perfectly the training data where the model will not be able to work well on new data for ex. with the test data. 
+Understanding and figur bias, varians problem or both in another word underfitting or overfitting. figure this problems help us to choce the good ways to improve the ML Algo. in (Fig. 3.) we see three different plots the first one from the left we see a high bias problem (underfitting) where the hypothesis didn't fit the training data very well, the next plot in the middle  the prefect case for the hypothesis just we want that, ths last plot we see the hypothesis has a high variance (overfitting) we see the hypothesis fit super perfectly the training data where the model will not be able to work well on new data for ex. with the test data. 
 
 
 ##### Fig. 3. bias-variance
@@ -110,5 +110,35 @@ Variance (Overfit) - The traing set error will be low, and the validation set er
 
 
 
+## Bias/Variance with regularization
 
-TODODODODODDODODO
+When we train model and using regulazation to prevent overfitting, if the regularization parameter lambda is too large the model not learn enough and the model has hiegh bias (underfitting) like plot in left side of the (Fig. 6.), in another hand if add a very small value of regulazation parameter lambda the model will fit the training data perfectly where will we end up with High variance problem (overfitting), we want hust the the optimal value of regularization parameter lambda like the plot in the middle.
+
+##### fig. 6. model with regularization
+![bilambdaas-variance-side-effect](./imgs/4.png)
+
+
+when we tain model and want to use the regulazation lambda with J-Cost function thats good, but you want measure the error of train/validation/test set error, we do that  without regularization. How to make model selection under different regularization parameter lambda, we choose a bunch of different regularization parameter lambda then we train diffrent models every one has own regression parameter then, we measure the validation set error ```ofcourse without the regularization parameter```  the model that has th lowest value of validation set error is the best then we measure for him the test set error to check how well does on test set  and get the good estimate how weel the model generalize. we can plot the selection process like blow and figure the bias variance problem.
+
+
+##### fig. 7. model with regularization and bias/Variance
+![bias-variance-side-effect](./imgs/3.png)
+
+When we have small lambda for regulazation even zero we see the train error is too small but the validation set error is too large this we call overfitting (it's hiegh variance), in another hand the large lambda give us a hiegh error for training set also hiegh error for validation set this we call underfitin (it's high bias problem).
+
+In the figure above, we see that as λ increases, our fit becomes more rigid. On the other hand, as λ approaches 0, we tend to over overfit the data. So how do we choose our parameter \lambdaλ to get it 'just right' ? In order to choose the model and the regularization termlambda λ, we need to:
+
+### How to choose parameter lambda
+
+To get it 'just right' ? In order to choose the model and the regularization term λ, we need to:
+
+1. Create a list of lambdas (i.e. λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24}).
+2. Create a set of models with different degrees or any other variants.
+3. Iterate through the λ and for each λ go through all the models to learn some Θ.
+4. Compute the cross validation error using the learned Θ (computed with λ) on the JCV(Θ) without regularization or λ = 0.
+5. Select the best combo that produces the lowest error on the cross validation set.
+6. Using the best combo Θ and λ, apply it on Jtest(Θ) to see if it has a good generalization of the problem.
+
+
+
+
