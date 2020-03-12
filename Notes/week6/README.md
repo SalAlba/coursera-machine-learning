@@ -39,3 +39,76 @@ Training/Testing procedure for linear regression :
 
 
 
+
+## Model selection
+
+How choose the best model ? or how to choose the good lambda parameter for regularization ? this case we call a model selection process. to explain this process let's consider this example, suppose we have a different polynomial suggested to solve some problem, so which one to choose how decide which one is good ?
+
+###### Fig. 2. different polynomials
+![14.png](imgs/14.png)
+
+
+TODO ... talk why train/test is not good way to selected the model, and how the model will fit the test set also make example of model selection using some code ....
+
+make difrent models with difrent polynomial degree (d), make train/validation set/test sets, train then validation set, pick the best an then test this one. estimate generalization error for test set
+
+
+```Model Selection and Train/Validation/Test Sets``` (COURSERA)
+
+Just because a learning algorithm fits a training set well, that does not mean it is a good hypothesis. It could over fit and as a result your predictions on the test set would be poor. The error of your hypothesis as measured on the data set with which you trained the parameters will be lower than the error on any other data set.
+
+Given many models with different polynomial degrees, we can use a systematic approach to identify the 'best' function. In order to choose the model of your hypothesis, you can test each degree of polynomial and look at the error result.
+
+One way to break down our dataset into the three sets is:
+
++ Training set: 60%
++ Cross validation set: 20%
++ Test set: 20%
+
+We can now calculate three separate error values for the three different sets using the following method:
+
++ Optimize the parameters in Θ using the training set for each polynomial degree.
++ Find the polynomial degree d with the least error using the cross validation set.
++ Estimate the generalization error using the test set with Jtest(Θ(d)), (d = theta from polynomial with lower error);
+
+This way, the degree of the polynomial d has not been trained using the test set.
+
+
+
+
+
+
+
+# Machine learning diagostic
+
+If you run the learning algorithm and it doesn't work as you expect, so probably the model (learning algorithem) suffering from bias/variance problem, maybe you model have high bias or high variance or both, what that mean underfitting or overfitting to figure this problem we use different technique we will talk about it right now.
+
+
+## Diagnosing Bias vs. Variance
+
+Understanding and figur bias, varians problem or both in another word underfitting or overfitting. figure this problems help us to choce the good ways to improve the ML Algo. in Fig. 3. we see three different plots the first one from the left we see a high bias problem (underfitting) where the hypothesis didn't fit the training data very well, the next plot in the middle  the prefect case for the hypothesis just we want that, ths last plot we see the hypothesis has a high variance (overfitting) we see the hypothesis fit super perfectly the training data where the model will not be able to work well on new data for ex. with the test data. 
+
+
+##### Fig. 3. bias-variance
+![bias-variance](./imgs/1.png)
+
+
+How we will detect the bias/variance problem in context of polynomial degree, we can make different models everyone has different degree then plot the train/validation error of every model like below
+
+##### Fig. 4. bias/variance with different polynomial degree
+![15.png](imgs/15.png)
+
+As we see in (Fig. 4.) the model with low degree for ex. d=1 has a big error on the train data also on the validation data thats mean hiegh bias problem (underfitin), in another hand the model with big degree for ex. d=5 the train error is very low the hypothesis fit the train data perfectly but on the Validation data the validation error is big so that mean a hiegh variance problem (overfitting).
+
+##### Fig. 5. bias/variance side effect
+![bias-variance-side-effect](./imgs/2.png)
+
+
+Bias (Underfit) - The training set error will be hiegh, and the validation set alos will be hiegh.
+
+Variance (Overfit) - The traing set error will be low, and the validation set error will be hiegh even much biger than training set error.
+
+
+
+
+TODODODODODDODODO
