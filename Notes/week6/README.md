@@ -142,3 +142,76 @@ To get it 'just right' ? In order to choose the model and the regularization ter
 
 
 
+
+
+## Learning curve
+
+![bias-variance-side-effect](./imgs/5.png)
+It's plot the error of training and validation set J-Cost function on difrent size of data set.
+
+
+
+
+![bias-variance-side-effect](./imgs/6.png)
+![bias-variance-side-effect](./imgs/7.png)
+![bias-variance-side-effect](./imgs/8.png)
+
+
+
+
+1. If have high bias don't try smaller sets of features, don't west time on cearfully select features.
+2. If have high bias try getting additional features.
+3. If have high bias try adding polynomial features.
+4. If have high variance so try smaller set of features or more training samples.
+5. Try decreasing lambda fix high bias 
+6. Try increasing lambda fix high variance
+
+
+
+
+
+![bias-variance-side-effect](./imgs/9.png)
+![bias-variance-side-effect](./imgs/10.png)
+
+
+
+## summarizing
+
+### Advantage / Disadvantage
+
+1. When you add more features, you increase the variance of your model, reducing the chances of underfitting.
+
+### Last words
+
+1. Diagnostics can give guidance as to what might be more fruitful things to try to improve a learning algorithm. [[1.1.]](#1-Video)
+2. Diagnostics can be time-consuming to implement and try, but they can still be a very good use of your time. [[1.1.]](#1-Video)
+3. Diagnostic can sometimes rule out certain courses of action (changes to your learning algorithm) as being unlikely to improve its performance significantly. [[1.1.]](#1-Video)
+4. Suppose an implementation of linear regression (without regularization) is badly overfitting the training set. In this case, the training error J(θ) to be low and the test error J(θ) to be high. [[1.2.]](#1-Video)
+5. Consider the model selection procedure where we choose the degree of polynomial using a cross validation set. For the final model (with parameters θ), we might generally expect J_validation set(θ) To be lower than J_test(θ) because, An extra parameter (d, the degree of the polynomial) has been fit to the cross validation set.
+6. High bias in others words underfitting, high variance mean overfitting.
+7. High bias (underfitting): both Jtrain(Θ) and JCV(Θ) will be high. Also, JCV(Θ)≈Jtrain(Θ).
+8. High variance (overfitting): Jtrain(Θ) will be low and JCV(Θ) will be much greater than Jtrain(Θ).
+
+
+
+
+
+
+
+## Resources
+
+###1-Video
+
+1. [[1.1.] week6 > Deciding What to Try Next](https://www.coursera.org/learn/machine-learning/lecture/OVM4M/deciding-what-to-try-next)
+
+1. [[1.2.] week6 > Evaluating a Hypothesis](https://www.coursera.org/learn/machine-learning/lecture/yfbJY/evaluating-a-hypothesis)
+
+
+
+# ✏️ 📝 NOTES | TODO ...
+
+1. TODO ... talk why train/test is not good way to selected the model, and how the model will fit the test set also make example of model selection using some code .... code code code 
+
+2. make examples of how build confusion matrix how count the examples, how measure P/R/F1, wriye def. examples
+
+3. definition of variance bias
