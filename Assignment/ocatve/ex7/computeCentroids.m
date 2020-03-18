@@ -25,12 +25,22 @@ centroids = zeros(K, n);
 %
 % Note: You can use a for-loop over the centroids to compute this.
 %
+t = {};
+for i = 1:K
+  t.(mat2str(i)) = [];
+endfor
+
+for i = 1:m
+  k = idx(i);
+  t.(mat2str(k))(end+1,:) =  X(i, :);
+endfor
 
 
-
-
-
-
+for i = 1:K
+  c = size(t.(mat2str(i)))(1);
+  x = sum(t.(mat2str(i)));
+  centroids(i, :) = (1./c) * x;
+endfor
 
 
 % =============================================================
