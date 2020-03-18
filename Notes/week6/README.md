@@ -175,6 +175,43 @@ It's plot the error of training and validation set J-Cost function on difrent si
 
 
 
+## Build ML system
+
+1. Prioritizing What to Work On.
+2. make list of ideas (options), which will be used to build the system, "gut feeling" is ``"baed ieada"``.
+3. error analysis.
+4. Collect lots of data (for example "honeypot" project but doesn't always work).
+
+## Recomendaded approach for building ML sys.
+
+1. build simple quick algo. test using validation set data, test data.
+2. Plots learnig curve etc..
+3. Error analysis, test the alog. manually using the validation set set, try to figure (find) if the model make some systmatic errors on on prediction and what is the type examples model make errors, this could help you to think whcich kind of feature you have to add or another solutions.
+4. Use the importance of numerical evaluation (e.g. validation set error), this numerical should work in diffrent situations and cases for ex. soppuse we have words (discount/discounted/discounting/etc.) should be trated as the same word ? use steeming ? what about (uinveres/uinversity), the numerical evaluation (e.g. validation set error) should performance with abd without steaming, because we make this test so can get 5% error for without steaming and 3% error if we use steaming aha. another example if we make spam calsfier should we distinguish upper/lower case, beacause we could end uo with 2% error if we treat all as lower case.
+
+![bias-variance-side-effect](./imgs/11.png)
+
+
+## Error Metrics for Skewed Classes
+
+Why we need Precision/Recall use it with Skewed classes ...
+
+Recall : fraction model did  correctly detect as having cancer. fraction of correctly detected samles brlong to class (1) dvided by the total real class number belong to class (1).
+
+Precision : no. of samples correctly predicted dvided by no. samples model predicted as as postive.
+
+![bias-variance-side-effect](./imgs/12.png)
+
+
+
+## large train set
+
+1. human can predict using the current x.
+2. are wa able to get large training set.
+
+
+
+
 ## summarizing
 
 ### Advantage / Disadvantage
@@ -200,7 +237,7 @@ It's plot the error of training and validation set J-Cost function on difrent si
 
 ## Resources
 
-###1-Video
+### 1-Video
 
 1. [[1.1.] week6 > Deciding What to Try Next](https://www.coursera.org/learn/machine-learning/lecture/OVM4M/deciding-what-to-try-next)
 
@@ -208,7 +245,7 @@ It's plot the error of training and validation set J-Cost function on difrent si
 
 
 
-# ✏️ 📝 NOTES | TODO ...
+# 📝 NOTES | TODO ...
 
 1. TODO ... talk why train/test is not good way to selected the model, and how the model will fit the test set also make example of model selection using some code .... code code code 
 
