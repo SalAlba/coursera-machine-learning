@@ -94,6 +94,7 @@ fprintf('\n(this value should be about  -1.047419 -1.047419)\n\n');
 
 %  Draw lines connecting the projected points to the original points
 hold on;
+plot(X_norm(:, 1), X_norm(:, 2), 'bo');
 plot(X_rec(:, 1), X_rec(:, 2), 'ro');
 for i = 1:size(X_norm, 1)
     drawLine(X_norm(i,:), X_rec(i,:), '--k', 'LineWidth', 1);
