@@ -17,7 +17,7 @@ This solutions can take a lot of months to implement it, or some time people cho
 When we train ML model (fitting) by minimizing the cost function, and getinggeting low training error, as we see in the (figure 1) below, the question is that good ? if our model is intelligent now ? is that we are looking for ? The answer is ```No``` it doesn't mean the model (hypothesis) is good necessarily, it's not good because we will get overfitting, as we see in the plot of the hypothesis below, what it mean the model will not be able to generalize new data and make good prediction on new data.
 
 ###### Fig. 1. exmaple of overfitting
-![13.png](imgs/13.png)
+![13.png](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/13.png)
 
 
 Now we know we don't want just to minimize the cost function (getting low value of training error), we want also to avoid the overfitting, but how to know when model start overfit the training data, especially when we have a lot of features in training data where we can't plot the hypothesis. the simplest way to evaluate the model (checking if there are overfitting) divide the data into two sets first one will be training set and the second test set, the portions of dividing is 70/30 which it mean the training set well have 70% of data and the test set 30%. ```keep in mind to randomly shuffle the data before splitting into train/test set```
@@ -45,7 +45,7 @@ Training/Testing procedure for linear regression :
 How choose the best model ? or how to choose the good lambda parameter for regularization ? this case we call a model selection process. to explain this process let's consider this example, suppose we have a different polynomial suggested to solve some problem, so which one to choose how decide which one is good ?
 
 ###### Fig. 2. different polynomials
-![14.png](imgs/14.png)
+![14.png](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/14.png)
 
 
 TODO ... talk why train/test is not good way to selected the model, and how the model will fit the test set also make example of model selection using some code ....
@@ -90,18 +90,18 @@ Understanding and figur bias, varians problem or both in another word underfitti
 
 
 ##### Fig. 3. bias-variance
-![bias-variance](./imgs/1.png)
+![bias-variance](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/1.png)
 
 
 How we will detect the bias/variance problem in context of polynomial degree, we can make different models everyone has different degree then plot the train/validation error of every model like below
 
 ##### Fig. 4. bias/variance with different polynomial degree
-![15.png](imgs/15.png)
+![15.png](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/15.png)
 
 As we see in (Fig. 4.) the model with low degree for ex. d=1 has a big error on the train data also on the validation data thats mean hiegh bias problem (underfitin), in another hand the model with big degree for ex. d=5 the train error is very low the hypothesis fit the train data perfectly but on the Validation data the validation error is big so that mean a hiegh variance problem (overfitting).
 
 ##### Fig. 5. bias/variance side effect
-![bias-variance-side-effect](./imgs/2.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/2.png)
 
 
 Bias (Underfit) - The training set error will be hiegh, and the validation set alos will be hiegh.
@@ -115,14 +115,14 @@ Variance (Overfit) - The traing set error will be low, and the validation set er
 When we train model and using regulazation to prevent overfitting, if the regularization parameter lambda is too large the model not learn enough and the model has hiegh bias (underfitting) like plot in left side of the (Fig. 6.), in another hand if add a very small value of regulazation parameter lambda the model will fit the training data perfectly where will we end up with High variance problem (overfitting), we want hust the the optimal value of regularization parameter lambda like the plot in the middle.
 
 ##### fig. 6. model with regularization
-![bilambdaas-variance-side-effect](./imgs/4.png)
+![bilambdaas-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/4.png)
 
 
 when we tain model and want to use the regulazation lambda with J-Cost function thats good, but you want measure the error of train/validation/test set error, we do that  without regularization. How to make model selection under different regularization parameter lambda, we choose a bunch of different regularization parameter lambda then we train diffrent models every one has own regression parameter then, we measure the validation set error ```ofcourse without the regularization parameter```  the model that has th lowest value of validation set error is the best then we measure for him the test set error to check how well does on test set  and get the good estimate how weel the model generalize. we can plot the selection process like blow and figure the bias variance problem.
 
 
 ##### fig. 7. model with regularization and bias/Variance
-![bias-variance-side-effect](./imgs/3.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/3.png)
 
 When we have small lambda for regulazation even zero we see the train error is too small but the validation set error is too large this we call overfitting (it's hiegh variance), in another hand the large lambda give us a hiegh error for training set also hiegh error for validation set this we call underfitin (it's high bias problem).
 
@@ -146,15 +146,15 @@ To get it 'just right' ? In order to choose the model and the regularization ter
 
 ## Learning curve
 
-![bias-variance-side-effect](./imgs/5.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/5.png)
 It's plot the error of training and validation set J-Cost function on difrent size of data set.
 
 
 
 
-![bias-variance-side-effect](./imgs/6.png)
-![bias-variance-side-effect](./imgs/7.png)
-![bias-variance-side-effect](./imgs/8.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/6.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/7.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/8.png)
 
 
 
@@ -170,8 +170,8 @@ It's plot the error of training and validation set J-Cost function on difrent si
 
 
 
-![bias-variance-side-effect](./imgs/9.png)
-![bias-variance-side-effect](./imgs/10.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/9.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/10.png)
 
 
 
@@ -189,7 +189,7 @@ It's plot the error of training and validation set J-Cost function on difrent si
 3. Error analysis, test the alog. manually using the validation set set, try to figure (find) if the model make some systmatic errors on on prediction and what is the type examples model make errors, this could help you to think whcich kind of feature you have to add or another solutions.
 4. Use the importance of numerical evaluation (e.g. validation set error), this numerical should work in diffrent situations and cases for ex. soppuse we have words (discount/discounted/discounting/etc.) should be trated as the same word ? use steeming ? what about (uinveres/uinversity), the numerical evaluation (e.g. validation set error) should performance with abd without steaming, because we make this test so can get 5% error for without steaming and 3% error if we use steaming aha. another example if we make spam calsfier should we distinguish upper/lower case, beacause we could end uo with 2% error if we treat all as lower case.
 
-![bias-variance-side-effect](./imgs/11.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/11.png)
 
 
 ## Error Metrics for Skewed Classes
@@ -200,7 +200,7 @@ Recall : fraction model did  correctly detect as having cancer. fraction of corr
 
 Precision : no. of samples correctly predicted dvided by no. samples model predicted as as postive.
 
-![bias-variance-side-effect](./imgs/12.png)
+![bias-variance-side-effect](https://raw.githubusercontent.com/SalAlba/coursera-machine-learning/master/Notes/week6/imgs/12.png)
 
 
 
