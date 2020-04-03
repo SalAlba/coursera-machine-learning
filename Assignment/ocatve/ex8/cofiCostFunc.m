@@ -41,12 +41,20 @@ Theta_grad = zeros(size(Theta));
 %
 
 %% ....
-n = X * Theta';
-n = n(R == 1);
-y = Y(R == 1);
-J = 0.5 * sum((n - y).^2);
+error = X * Theta' - Y;
+
+%error = error(R == 1);
+%y = Y(R == 1);
+error = error .* R;
+
+req_theta = (lambda / 2.)  * sum(sum(Theta.^2));
+req_x= (lambda / 2.)  * sum(sum(X.^2));
+
+J = 0.5 * sum(sum(error.^ 2)) + req_theta + req_x;
 
 %% ....
+X_grad = error * Theta + lambda * X;
+Theta_grad = error' * X + lambda * Theta;
 
 % =============================================================
 
