@@ -1,6 +1,30 @@
 # Gradient Descent
 
 
+## Linear regression
+
+$$ h_{\theta}(x) = \sum_{j=0}^{n} \theta_{j}x_{j} $$
+
+$$ J_{train}(\theta) = \frac{1}{2m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})^{2} $$
+
+$$
+Repeat : (
+\\
+\theta_{j} := \theta_{j} - \alpha \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})x_{j}^{(i)}
+\\
+(for \enspace every \enspace j=0,...,n)
+\\
+)
+$$
+
+![1.png](./imgs/1.png)
+
+
+
+# Stochastic Gradient Descent
+
+![2.png](./imgs/2.png)
+
 
 ## summarizing
 
@@ -9,7 +33,9 @@
 
 
 ### Last words
-1. TODO ...
+1. Gradient Descent (and other optimization algorithm) always trying to minimize the cost function (MSE, RMSE, etc.).
+2. Gradient Descent good for small number of data.
+3. Stochastic Gradient Descent don't reach the real minimum of cost function, just walking around in very near area of minimum.
 
 
 
