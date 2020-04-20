@@ -325,13 +325,14 @@ def remove_zero_and_one(X, y):
 
 
 class LearningCurve():
-    def ___ini__(self, t0=5, t1=50, gamma=0.9, lambda_=0.1, epochs=5, threshold=3000):
+    def ___ini__(self, t0=5, t1=50, gamma=0.9, lambda_=0.1, epochs=5, threshold=3000, decision=0.5):
         self.t0 = t0
         self.t1 = t1
         self.gamma = gamma
         self.lambda_ = lambda_
         self.epochs = epochs
         self.threshold = threshold
+        self.decision = decision
 
     def learning_curve_data_size(self, X, y, X_val, y_val):
         # ...
@@ -628,85 +629,77 @@ class LearningCurve():
 
 
 
-def learning_curve_decision(X: np.ndarray, y: np.ndarray, X_val: np.ndarray, y_val: np.ndarray):
-    # ...
-    m = len(X)
-    axis = []
-    error_train = []
-    error_val = []
-    recalls = []
-    precisions = []
-    threshold = 3000
-    itr = 0
-
-    alpha = 0.5
-    t0 = 5
-    t1 = 50
-    gamma = 0.9
-    lambda_ = 0.1
-    epochs = 5
-    decision = 0.1
-
-
-    for g in range(4, 9):
+    def learning_curve_decision(self, X, y, X_val, y_val):
         # ...
-        itr +=1
-        print('>>>> itr: ', itr)
-        axis.append(round(decision * g, 2))
+        m = len(X)
+        axis = []
+        error_train = []
+        error_val = []
+        recalls = []
+        precisions = []
+        threshold = 3000
+        itr = 0
 
-        # ...
-        logistic_regression = Model(epochs=epochs, t0=t0, t1=t1, gamma=gamma, lambda_=lambda_)
-        logistic_regression.decision = decision * g
-        logistic_regression.fit(X, y)
 
-        # ...
-        y_pred = logistic_regression.predict(X)
-        error_train.append(Model.evaluate(y, y_pred) * 100)
+        for g in range(4, 9):
+            # ...
+            itr +=1
+            print('>>>> itr: ', itr)
+            axis.append(round(self.decision * g, 2))
 
-        # ...
-        recall = recall_score(y, y_pred)
-        precision = precision_score(y, y_pred)
-        recalls.append(recall)
-        precisions.append(precision)
+            # ...
+            logistic_regression = Model(epochs=self.epochs, t0=self.t0, t1=self.t1, gamma=self.gamma, lambda_=self.lambda_)
+            logistic_regression.decision = self.decision * g
+            logistic_regression.fit(X, y)
 
-        # ...
-        y_pred = logistic_regression.predict(X_val)
-        error_val.append(Model.evaluate(y_val, y_pred) * 100)
+            # ...
+            y_pred = logistic_regression.predict(X)
+            error_train.append(Model.evaluate(y, y_pred) * 100)
 
-        print(axis)
-        print(error_train)
-        print(error_val)
-        print(precisions)
-        print(recalls)
+            # ...
+            recall = recall_score(y, y_pred)
+            precision = precision_score(y, y_pred)
+            recalls.append(recall)
+            precisions.append(precision)
 
-    return axis, error_train, error_val, recalls, precisions
+            # ...
+            y_pred = logistic_regression.predict(X_val)
+            error_val.append(Model.evaluate(y_val, y_pred) * 100)
 
-def plot_learning_curve_decision(axis, error_train, error_val):
-    plt.plot(axis, error_train, c='red', label='train')
-    plt.plot(axis, error_val, c='blue', label='validation')
-    for x, te, ve in zip(axis, error_train, error_val):
-        plt.annotate(
-            '{}'.format(round(te, 1)),
-            (x, te),
-            xytext = (3, 3),
-            textcoords = 'offset points',
-            ha = 'left',
-            va = 'top'
-        )
-        plt.annotate(
-            '{}'.format(round(ve, 1)),
-            (x, ve),
-            xytext = (3, 3),
-            textcoords = 'offset points',
-            ha = 'left',
-            va = 'top'
-        )
-    plt.title('learning curve acc, epochs:{epochs} | t0:{t0}/t1:{t1} | gamma:{gamma} | lambda:{lambda_}'.format(epochs=10, t0=5, t1=50, gamma=0.9, lambda_=0.1))
-    plt.xlabel('decision')
-    plt.ylabel('accuracy (%)',rotation=90)
-    plt.legend()
-    plt.grid()
-    plt.show()
+            print(axis)
+            print(error_train)
+            print(error_val)
+            print(precisions)
+            print(recalls)
+
+        return axis, error_train, error_val, recalls, precisions
+
+    def plot_learning_curve_decision(axis, error_train, error_val):
+        plt.plot(axis, error_train, c='red', label='train')
+        plt.plot(axis, error_val, c='blue', label='validation')
+        for x, te, ve in zip(axis, error_train, error_val):
+            plt.annotate(
+                '{}'.format(round(te, 1)),
+                (x, te),
+                xytext = (3, 3),
+                textcoords = 'offset points',
+                ha = 'left',
+                va = 'top'
+            )
+            plt.annotate(
+                '{}'.format(round(ve, 1)),
+                (x, ve),
+                xytext = (3, 3),
+                textcoords = 'offset points',
+                ha = 'left',
+                va = 'top'
+            )
+        plt.title('learning curve acc, epochs:{epochs} | t0:{t0}/t1:{t1} | gamma:{gamma} | lambda:{lambda_}'.format(epochs=self.epochs, t0=self.t0 t1=self.t1, gamma=self.gamma, lambda_=self.lambda_))
+        plt.xlabel('decision')
+        plt.ylabel('accuracy (%)',rotation=90)
+        plt.legend()
+        plt.grid()
+        plt.show()
 
 
 
