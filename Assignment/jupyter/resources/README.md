@@ -22,13 +22,3 @@
 
 ### Review
 
-
-video
-
-vjs-tech
-
-#vjs_video_32704_html5_api
-
-//*[@id="vjs_video_32704_html5_api"]
-
-/html/body/div[3]/div/div/div[2]/div/div[2]/div[2]/div[2]/main/div/div[1]/div/div/div[2]/video
